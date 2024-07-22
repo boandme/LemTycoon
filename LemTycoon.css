@@ -1,0 +1,20 @@
+body{
+   background-color: yellow;
+}
+#money {
+   color: darkgreen;
+   font-size: 40;
+   
+ }
+#toptitle{
+ text-align: center;
+ font-size: 50;
+}
+span.title{
+ color: blue;
+ font-size: 50;
+ text-align: center;
+}
+h1 {
+   font-size: 30;
+}
