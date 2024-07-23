@@ -3,16 +3,15 @@ body{
 }
 #money {
    color: darkgreen;
-   font-size: 40;
+   font-size: 40px;
    
  }
 #toptitle{
  text-align: center;
- font-size: 50;
 }
 span.title{
  color: blue;
- font-size: 50;
+ font-size: 50px;
  text-align: center;
 }
 h1 {
