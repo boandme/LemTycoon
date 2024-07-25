@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LemTycoon V0.2</title>
+        <title>LemTycoon V0.5</title>
         <link rel="stylesheet" href="LemTycoon.css" >
     </head>
     <body>
     <script src = "LemTycoon.js" ></script>
     <div id = "toptitle">
         <span id = "coin">$</span>
-        <span id="money">20</span>
-        <span class ="title">LemTycoon V0.4 <span>
+        <span id="money">30</span>
+        <span class ="title">LemTycoon V0.5 <span>
       </div>
     <h1>Shop</h1>
     <button onclick = "BuyLemon()">🍋 Lemon | $3</button> <br>
     <button onclick = "BuySugar()">⚪ Sugar | $1</button>
+    <button id = "buyStraw" onclick = "BuyStrawberry()" >🍓 Strawberry | $4</button>
     <h1> Inventory</h1>
     <div id = "lemons">
         <span >🍋 Lemon: </span>
@@ -23,20 +24,31 @@
         <span >⚪ Sugar: </span>
         <span id = "numsugars"></span>
     </div> 
+    <div id = "InvStrawberries">
+        <span id = "invStrawGone">🍓 Strawberry: </span>
+        <span id = "numstrawberries"></span>
+    </div> 
     <div id = "lemonades">
         <span >🍹Lemonade: </span>
         <span id = "numlemonades"></span>
     </div> 
+    <div id = "pink_lemonades">
+        <span >🍓🍹 Pink Lemonade: </span>
+        <span id = "numPinkLemonades">0</span>
+    </div> 
     <button onclick = makelemonade()>Make Lemonade(2 lemon, 1 sugar)</button>
-    <div id = price >
+    <button id = "makePinkLem" onclick = makePinkLemonade()> Make Pink Lemonade(2 lemon, 1 strawberry)</button>
+     <div id = price >
         <span> Lemonade Price: $</span>
-        <span id = "lemprice">7</span>
-        <button onclick = "addprice()">+</button>
-        <button onclick = "lowerprice()">-</button>
+        <span id = "lemprice">8</span>
+        <br>
+        <span> Pink Lemonade Price: $</span>
+        <span id = "pinkLemPrice">12</span>
         
-
-
     </div>
+    <h1> Upgrades </h1>
+    <button onclick = "ad1()" > <h3>Advertisements I | $100 </h3>   <p>Increases drink revenue </p></button>
+    <button id = "pinkLem" onclick = "pinkLemUpgrade()"> <h3> Pink Lemonade | $200</h3> <p>Unlocks Pink Lemonade to sell </p></button>
     
 
 
