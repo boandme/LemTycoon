@@ -10,47 +10,69 @@
         <span id = "coin">$</span>
         <span id="money">30</span>
         <span class ="title">LemTycoon V0.5 <span>
+        <span class = "time"id ="daynum">1</span>
+        <span class ="time">Day&nbsp;</span>
+        <span id = "nightday" class ="time ">☀️</span>
+        
       </div>
+<div class = "row" >
+    <div id = "shop" class = "column">
     <h1>Shop</h1>
     <button onclick = "BuyLemon()">🍋 Lemon | $3</button> <br>
     <button onclick = "BuySugar()">⚪ Sugar | $1</button>
     <button id = "buyStraw" onclick = "BuyStrawberry()" >🍓 Strawberry | $4</button>
-    <h1> Inventory</h1>
-    <div id = "lemons">
-        <span >🍋 Lemon: </span>
-        <span id = "numlemons"></span>
-    </div>  
-    <div id = "sugars">
-        <span >⚪ Sugar: </span>
-        <span id = "numsugars"></span>
-    </div> 
-    <div id = "InvStrawberries">
-        <span id = "invStrawGone">🍓 Strawberry: </span>
-        <span id = "numstrawberries"></span>
-    </div> 
-    <div id = "lemonades">
-        <span >🍹Lemonade: </span>
-        <span id = "numlemonades"></span>
-    </div> 
-    <div id = "pink_lemonades">
-        <span >🍓🍹 Pink Lemonade: </span>
-        <span id = "numPinkLemonades">0</span>
-    </div> 
-    <button onclick = makelemonade()>Make Lemonade(2 lemon, 1 sugar)</button>
-    <button id = "makePinkLem" onclick = makePinkLemonade()> Make Pink Lemonade(2 lemon, 1 strawberry)</button>
-     <div id = price >
+</div>
+
+     
+    
+    <div id = "inventory" class = "column" >
+        <h1> Inventory</h1>
+        <div id  = "invBody">
+        <div id = "lemons">
+            <span >🍋 Lemon: </span>
+            <span id = "numlemons"></span>
+        </div>  
+        <div id = "sugars">
+            <span >⚪ Sugar: </span>
+            <span id = "numsugars"></span>
+        </div> 
+        <div id = "InvStrawberries">
+            <span id = "invStrawGone">🍓 Strawberry: </span>
+            <span id = "numstrawberries"></span>
+        </div> 
+        <div id = "lemonades">
+            <span >🍹Lemonade: </span>
+            <span id = "numlemonades"></span>
+        </div> 
+        <div id = "pink_lemonades">
+            <span >🍓🍹 Pink Lemonade: </span>
+            <span id = "numPinkLemonades">0</span>
+        </div> 
+    </div>
+        <button onclick = makelemonade()>Make Lemonade(2 lemon, 1 sugar)</button>
+        <button id = "makePinkLem" onclick = makePinkLemonade()> Make Pink Lemonade(2 lemon, 1 strawberry)</button>
+    </div>
+    
+
+    <div id = "upgrades" class = "column">
+        <h1> Upgrades </h1>
+        <button onclick = "ad1()" > <h3>Advertisements I | $100 </h3>   <p>Increases drink revenue </p></button> <br>
+        <button id = "pinkLem" onclick = "pinkLemUpgrade()"> <h3> Pink Lemonade | $200</h3> <p>Unlocks Pink Lemonade to sell </p></button>
+    </div>
+</div>
+<div id = price >
+    <img id = "priceImg" src = "price.png" width = 30px height = 30px>
+    <h1> Today's Prices </h1>
+    
+        <div id = "priceBody" >
         <span> Lemonade Price: $</span>
         <span id = "lemprice">8</span>
         <br>
         <span> Pink Lemonade Price: $</span>
         <span id = "pinkLemPrice">12</span>
-        
     </div>
-    <h1> Upgrades </h1>
-    <button onclick = "ad1()" > <h3>Advertisements I | $100 </h3>   <p>Increases drink revenue </p></button>
-    <button id = "pinkLem" onclick = "pinkLemUpgrade()"> <h3> Pink Lemonade | $200</h3> <p>Unlocks Pink Lemonade to sell </p></button>
     
-
+</div>
 
 
 

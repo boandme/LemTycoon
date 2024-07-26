@@ -14,7 +14,8 @@ var Lemonade_min = 9;
 var Lemonade_max = 14;
 var pinkLem_min = 12;
 var pinkLem_max = 17;
-
+var current_time = "day"
+var current_day = 1
 // Buy grocery items //
 function BuyLemon(){
     if (money >= 3) {
@@ -74,7 +75,7 @@ function makePinkLemonade(){
 
 
 //Refreshing prices and generating random numbers
-setInterval(refreshprices, 20000)
+setInterval(refreshprices, 40000)
 function refreshprices(){
     lemprice = getRandomNumber(Lemonade_min,Lemonade_max)
     drinks.Pink_Lemonade = getRandomNumber(pinkLem_min,pinkLem_max)
@@ -138,5 +139,24 @@ function pinkLemUpgrade() {
         document.getElementById("money").innerText = money;
 
     }
+}
+
+// day and time system //
+setInterval(changeTime, 20000)
+setInterval(changeDay, 40000)
+function changeTime() {
+    if (current_time === "day") {
+        current_time = "night"
+        document.getElementById("nightday").innerText = "🌙"
+    }
+    else {
+        current_time = "day"
+        document.getElementById("nightday").innerText = "☀️"
+    }
+}
+
+function changeDay(){
+    current_day ++;
+    document.getElementById("daynum").innerText = current_day
 }
 
