@@ -30,6 +30,10 @@ h1 {
 }
 #lemonades {
    margin: 30px 0 0 0;
+  
+}
+#brownies {
+  display: none;
 }
 p {
    font-size: 13px;
@@ -54,7 +58,8 @@ h3 {
    border:  1px solid  black;
    padding: 2px;
    text-align: center;
-   position: relative
+   position: relative;
+   background-color: rgb(254,242,80);
 }
 
 
@@ -62,13 +67,30 @@ h3 {
  #InvStrawberries {
    display: none;
  }
+ #InvChocolates {
+  display:none;
+ }
 
  #pinkLem {
    display :show;
+   background-color: rgb(254,242,80);
+   margin-bottom: 20px;
  }
+ #ad1, #ad2, #chocolatier {
+  background-color: rgb(254,242,80);
+ }
+ #ad2 {
+  margin-bottom: 20px;
+ }
+
 
  #buyStraw {
    display:none;
+   margin-top: 15px;
+ }
+ #buyChoc {
+  display:none;
+  margin-top: 15px;
  }
 
  #pink_lemonades {
@@ -77,6 +99,15 @@ h3 {
 
  #makePinkLem {
    display : none;
+   margin-top: 10px;
+ }
+ 
+ #makeLem {
+  margin-top: 20px;
+ }
+ #makeBrownie {
+  margin-top: 20px;
+  display:none;
  }
  .time {
    float:right;
