@@ -8,13 +8,32 @@
     <script src = "LemTycoon.js" ></script>
     <div id = "toptitle">
         <span id = "coin">$</span>
-        <span id="money">30</span>
+        <span id="money">50</span>
         <span class ="title">LemTycoon V0.7 <span>
         <span class = "time"id ="daynum">1</span>
         <span class ="time">Day&nbsp;</span>
         <span id = "nightday" class ="time ">☀️</span>
         
       </div>
+    </div>
+    
+</div>
+    <div id = "popupModal" class = "modal">
+        <div class = "modal-content">
+            <span onclick = "removeModal()" class = "close">&times;</span>
+            <h1> Rent & Tax Time!</h1>
+            <div id = "modal-body">
+                <span> Taxes due(20%): $</span>
+                <span id = "taxes"></span> <br> 
+                <span> Total Rent due(Added up from before): $</span>
+                <span id = "totalrent"></span> <br> 
+                <span> Rent Paid: $</span>
+                <span id = "rentpaid"></span> 
+                
+        </div>
+
+        </div>
+    </div>
 <div class = "row" >
     <div id = "shop" class = "column">
     <h1>Shop</h1>
@@ -85,9 +104,7 @@
         <br>
         <span> Brownie Price $</span>
         <span id = "brownieprice"> 13</span>
-    </div>
     
-</div>
 
 
 

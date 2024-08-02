@@ -19,8 +19,10 @@ var pinkLem_min = 13;
 var pinkLem_max = 18;
 var brownie_min = 12;
 var brownie_max = 20;
-var current_time = "day"
-var current_day = 1
+var current_time = "day";
+var current_day = 1;
+var currentRent = 100;
+var totalRent = 0;
 
 
 function Buy(item) {
@@ -227,3 +229,34 @@ function changeDay(){
     document.getElementById("daynum").innerText = current_day
 }
 
+
+// Rent and Taxes
+ setInterval(triggerModal, 400000)
+var closeSpan = document.getElementsByClassName("close")[0];
+
+function triggerModal() {
+    document.getElementById("popupModal").style.display = "block"
+    var taxes = Math.floor(money/5)
+    money -= taxes
+    document.getElementById("taxes").innerText = taxes
+    if( money <= totalRent+currentRent) {
+        var rentpaid = money
+        totalRent += currentRent
+        rentpaid -= 10;
+    }
+    else {
+        var rentNotPaid = money - currentRent;
+        var rentpaid = money - rentNotPaid;
+    }
+    document.getElementById("rentpaid").innerText = rentpaid
+    document.getElementById("money").innerText = money
+    document.getElementById("taxes").innerText = taxes
+    document.getElementById("totalrent").innerText = totalRent
+    money -= rentpaid
+    totalRent -= rentpaid
+
+}
+
+function removeModal() {
+    document.getElementById("popupModal").style.display = "none";
+}
