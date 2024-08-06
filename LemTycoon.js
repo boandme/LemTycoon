@@ -1,5 +1,5 @@
 // Variables //
-var money = 50;
+var money = 800;
 var numlemons = 0;
 var numsugars = 0;
 var numstrawberries = 0;
@@ -23,7 +23,9 @@ var current_time = "day";
 var current_day = 1;
 var currentRent = 100;
 var totalRent = 0;
-
+var taxToggle = true
+var cookLevel = 1
+var cookRate = 3000
 
 function Buy(item) {
     if( money >= items[item]) {
@@ -237,7 +239,13 @@ var closeSpan = document.getElementsByClassName("close")[0];
 function triggerModal() {
     document.getElementById("popupModal").style.display = "block"
     var taxes = Math.floor(money/5)
-    money -= taxes
+    if (taxToggle) {
+        money -= taxes
+    }
+    else {
+        taxes = 0
+    }
+    
     document.getElementById("taxes").innerText = taxes
     if( money <= totalRent+currentRent) {
         var rentpaid = money
@@ -259,4 +267,52 @@ function triggerModal() {
 
 function removeModal() {
     document.getElementById("popupModal").style.display = "none";
+}
+
+function taxEvasion() {
+    if ( money >= 250) {
+        money -= 250
+        taxToggle = false
+        document.getElementById("money").innerText = money
+    }
+}
+
+
+
+// cook and stock manager upgrades //
+
+function cookUpgrade() {
+    if ( money >= 750) {
+        money -= 750
+        setInterval(cookfood, cookRate)
+        document.getElementById("money").innerText = money
+        document.getElementById("CookInfo").style.display = "block"
+
+    }
+}
+
+function cookfood() {
+    makelemonade()
+    makePinkLemonade()
+    makeBrownie()
+}
+
+function workerMenuOn() {
+    document.getElementById("workerModal").style.display = "block"
+}
+
+function workerMenuRemove(){
+    document.getElementById("workerModal").style.display = "none";
+}
+
+function UpCook() {
+    if(money >= 200 && cookRate >1000) {
+        money -= 200
+        cookLevel += 1
+        cookRate -= 500
+        document.getElementById("money").innerText = money
+        document.getElementById("cookLevel").innerText = cookLevel
+        document.getElementById("cookrate").innerText = cookRate/1000
+
+    }
 }

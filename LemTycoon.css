@@ -52,13 +52,16 @@ h3 {
 }
 #shop {
    width: 175px;
+   height:50%;
 }
 #price {
-   width: 30%;
+   width: 100%;
    border:  1px solid  black;
    padding: 2px;
+   margin-top: 20px;
    text-align: center;
    position: relative;
+   float:left;
    background-color: rgb(254,242,80);
 }
 
@@ -74,14 +77,12 @@ h3 {
  #pinkLem {
    display :show;
    background-color: rgb(254,242,80);
-   margin-bottom: 20px;
  }
- #ad1, #ad2, #chocolatier {
+ #ad1, #ad2, #chocolatier, #tax_evasion, #pinkLem, #cook {
   background-color: rgb(254,242,80);
- }
- #ad2 {
   margin-bottom: 20px;
  }
+ 
 
 
  #buyStraw {
@@ -113,6 +114,7 @@ h3 {
  }
  .time {
    float:right;
+
  }
  .row {
    display: flex;
@@ -130,10 +132,43 @@ h3 {
  #priceImg {
    float:left;
    position: absolute;
-   left: 50px;
+   left: 30px;
    top: 25px;
  }
 
+ #workers {
+  background: url("workers.png");
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  right: 10px;
+  top: 120px;
+  border: 2px solid black;
+  border-radius: 20px;
+  
+ }
+ #CookInfo {
+  position:relative;
+  border: 2px solid black;
+  display:none; 
+ }
+ #pfp_img {
+  position:absolute;
+  width: 85px;
+  height: 85px;
+  left: 325px;
+  top: 5px;
+ }
+ #upg_img {
+  position:absolute;
+  width: 85px;
+  height: 85px;
+  left: 800px;
+  top: 5px;
+  border: 2px solid black;
+  border-radius: 50px;
+
+ }
  #invBody {
    font-size: 20px; 
  }

@@ -8,6 +8,6 @@ v0.3 - Automatic money making update 💸
 v0.5 - Pink Lemonade + Upgrades Update! 🍋🍓🛠️
 v.06 - Times Update (days and nights) 🌙🌞
 v0.7 - Brownie Update 🍫🥮
-v0.8[August 2] - Rent & Tax Update 💸💰
-v0.9[August] - Office space upgrades Update 🏢
+v0.8 - Rent & Tax Update 💸💰
+v0.9 - Chef Update 
 v1.0[August] - Masala Lemonade update - 🌿🍋

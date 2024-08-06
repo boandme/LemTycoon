@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LemTycoon V0.7</title>
+        <title>LemTycoon V0.9</title>
         <link rel="stylesheet" href="LemTycoon.css" >
     </head>
     <body>
     <script src = "LemTycoon.js" ></script>
     <div id = "toptitle">
         <span id = "coin">$</span>
-        <span id="money">50</span>
-        <span class ="title">LemTycoon V0.7 <span>
+        <span id="money">800</span>
+        <span class ="title">LemTycoon V0.9 <span>
         <span class = "time"id ="daynum">1</span>
         <span class ="time">Day&nbsp;</span>
         <span id = "nightday" class ="time ">☀️</span>
@@ -41,6 +41,22 @@
     <button onclick = "Buy('sugar')">⚪ Sugar | $1</button>
     <button id = "buyStraw" onclick = "Buy('strawberry')" >🍓 Strawberry | $4</button>
     <button id = "buyChoc" onclick = "Buy('chocolate')">🍫 Chocolate| $8</button> 
+    <div id = price >
+        <img id = "priceImg" src = "price.png" width = 30px height = 30px>
+        <h1> Today's Prices </h1>
+        
+            <div id = "priceBody" >
+            <span> Lemonade Price: $</span>
+            <span id = "lemprice">8</span>
+            <br>
+            <span> Pink Lemonade Price: $</span>
+            <span id = "pinkLemPrice">12</span>
+            <br>
+            <span> Brownie Price $</span>
+            <span id = "brownieprice"> 13</span>
+        
+    </div>
+    </div>
 </div>
 
      
@@ -89,22 +105,34 @@
         <button id = "pinkLem" onclick = "pinkLemUpgrade()"> <h3> Pink Lemonade | $200</h3> <p>Unlocks Pink Lemonade to sell </p></button>
         <button id = "ad2" onclick = "ad2()" > <h3>Advertisements II | $500</h3> <p> Customers buy your drinks faster</p></button>
         <button id = "chocolatier" onclick = "brownieUpgrade()"> <h3> Chocolatier | $350</h3> <p> Unlocks Chocolate and Brownies</p></button>
+        <button id = "tax_evasion" onclick = "taxEvasion()"> <h3> Tax Evasion | $250</h3> <p> Exactly what it sounds like</p></button>
+        <button id = "cook" onclick = "cookUpgrade()" > <h3> Cook | $750</h3> <p> Hire a cook that automatically makes recipes for you!</p></button>
     </div>
+    
+    <img src = "workers.png" id = "workers" onclick = "workerMenuOn()"></img>
+    <div id = "workerModal" class = "modal">
+        <div class = "modal-content">
+            <span onclick = "workerMenuRemove()" class = "close">&times;</span>
+            <h1> Your Staff </h1> 
+            <div id = "CookInfo">
+                <img id = "pfp_img" src = "pfp.png">
+                <h3> Chef </h3>
+                <span> Level </span>
+                <span id = "cookLevel">1</span> <br>
+                <p> Upgrade cost: $200<p>
+                <span> Current cooking time: </span>
+                <span id = "cookrate">3</span>
+                <span>s</span>
+                <img id = "upg_img" src = "upgrade.png" onclick = "UpCook()">
+            </div>
+                
+        </div>
+
+        </div>
+    </div>
+   
+
 </div>
-<div id = price >
-    <img id = "priceImg" src = "price.png" width = 30px height = 30px>
-    <h1> Today's Prices </h1>
-    
-        <div id = "priceBody" >
-        <span> Lemonade Price: $</span>
-        <span id = "lemprice">8</span>
-        <br>
-        <span> Pink Lemonade Price: $</span>
-        <span id = "pinkLemPrice">12</span>
-        <br>
-        <span> Brownie Price $</span>
-        <span id = "brownieprice"> 13</span>
-    
 
 
 
