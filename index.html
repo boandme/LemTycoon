@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LemTycoon V0.9</title>
+        <title>LemTycoon v1.0</title>
         <link rel="stylesheet" href="LemTycoon.css" >
     </head>
     <body>
@@ -9,7 +9,7 @@
     <div id = "toptitle">
         <span id = "coin">$</span>
         <span id="money">800</span>
-        <span class ="title">LemTycoon V0.9 <span>
+        <span class ="title">LemTycoon v1.0 <span>
         <span class = "time"id ="daynum">1</span>
         <span class ="time">Day&nbsp;</span>
         <span id = "nightday" class ="time ">☀️</span>
@@ -41,6 +41,7 @@
     <button onclick = "Buy('sugar')">⚪ Sugar | $1</button>
     <button id = "buyStraw" onclick = "Buy('strawberry')" >🍓 Strawberry | $4</button>
     <button id = "buyChoc" onclick = "Buy('chocolate')">🍫 Chocolate| $8</button> 
+    <button id = "buyHerb" onclick = "Buy('herb')">🌿 Herb | $13</button>
     <div id = price >
         <img id = "priceImg" src = "price.png" width = 30px height = 30px>
         <h1> Today's Prices </h1>
@@ -54,6 +55,9 @@
             <br>
             <span> Brownie Price $</span>
             <span id = "brownieprice"> 13</span>
+            <br>
+            <span> Masala Lemonade Price $</span>
+            <span id = "masala_price"> 27</span>
         
     </div>
     </div>
@@ -80,6 +84,10 @@
             <span id = "invChocGone">🍫 Chocolate: </span>
             <span id = "numchocolates"></span>
         </div> 
+        <div id = "InvHerbs">
+            <span id = "invHerbGone"> 🌿 Herb: </span>
+            <span id = "numherbs"></span>
+        </div> 
         <div id = "lemonades">
             <span >🍹Lemonade: </span>
             <span id = "numlemonades"></span>
@@ -92,10 +100,15 @@
             <span>🥮 Brownies: </span>
             <span id = "numBrownies">0</span>
         </div>
+        <div id = "masala_lemonades">
+            <span>🌿🍹 Masala Lemonades: </span>
+            <span id = "numMasalaLemonades">0</span>
+        </div>
     </div>
         <button id = "makeLem" onclick = makelemonade()>Make Lemonade(2 lemon, 1 sugar)</button>
         <button id = "makePinkLem" onclick = makePinkLemonade()> Make Pink Lemonade(2 lemon, 1 strawberry)</button>
         <button id = "makeBrownie" onclick = makeBrownie()>Make Brownie(1 chocolate, 1 sugar)</button>
+        <button id = "makeMasala" onclick = "makeMasala()"> Make Masala Lemonade(1 herb, 2 lemon)</button>
     </div>
     
 
@@ -107,6 +120,7 @@
         <button id = "chocolatier" onclick = "brownieUpgrade()"> <h3> Chocolatier | $350</h3> <p> Unlocks Chocolate and Brownies</p></button>
         <button id = "tax_evasion" onclick = "taxEvasion()"> <h3> Tax Evasion | $250</h3> <p> Exactly what it sounds like</p></button>
         <button id = "cook" onclick = "cookUpgrade()" > <h3> Cook | $750</h3> <p> Hire a cook that automatically makes recipes for you!</p></button>
+        <button id = "masala" onclick = "masalaUpgrade()" > <h3> Masala | $500</h3> <p> Unlocks Masala Lemonade to sell </p></button>
     </div>
     
     <img src = "workers.png" id = "workers" onclick = "workerMenuOn()"></img>

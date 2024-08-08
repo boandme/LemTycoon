@@ -73,23 +73,32 @@ h3 {
  #InvChocolates {
   display:none;
  }
+ #InvHerbs {
+  display:none;
+ }
 
  #pinkLem {
    display :show;
    background-color: rgb(254,242,80);
  }
- #ad1, #ad2, #chocolatier, #tax_evasion, #pinkLem, #cook {
+ #ad1, #ad2, #chocolatier, #tax_evasion, #pinkLem, #cook, #masala {
   background-color: rgb(254,242,80);
   margin-bottom: 20px;
  }
  
-
+#masala {
+  display:none;
+}
 
  #buyStraw {
    display:none;
    margin-top: 15px;
  }
  #buyChoc {
+  display:none;
+  margin-top: 15px;
+ }
+ #buyHerb {
   display:none;
   margin-top: 15px;
  }
@@ -100,16 +109,21 @@ h3 {
 
  #makePinkLem {
    display : none;
-   margin-top: 10px;
  }
  
- #makeLem {
+ #makeLem, #makePinkLem, #makeBrownie, #makeMasala {
   margin-top: 20px;
   background-color: green;
   color: rgb(255, 255, 191)
  }
  #makeBrownie {
-  margin-top: 20px;
+  display:none;
+ }
+ #makeMasala {
+  display:none;
+ }
+
+ #masala_lemonades {
   display:none;
  }
  .time {
