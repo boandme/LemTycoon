@@ -28,9 +28,12 @@ var current_time = "day";
 var current_day = 1;
 var currentRent = 100;
 var totalRent = 0;
-var taxToggle = true
-var cookLevel = 1
-var cookRate = 3000
+var taxToggle = true;
+var cookLevel = 1;
+var cookRate = 3000;
+var totalsales = 0;
+var recipes = 1;
+var rating = 0;
 
 function Buy(item) {
     if( money >= items[item]) {
@@ -158,6 +161,7 @@ function SellLemonade(){
         console.log(products.Lemonade)
         document.getElementById("money").innerText = money;
         document.getElementById("numlemonades").innerText = numlemonades;
+        totalsales ++;
 
     }
 }
@@ -168,6 +172,7 @@ function SellPinkLemonade() {
         money += products.Pink_Lemonade
         document.getElementById("money").innerText = money;
         document.getElementById("numPinkLemonades").innerText = numPinkLemonades;
+        totalsales ++;
 
     }
 }
@@ -178,6 +183,7 @@ function SellBrownie() {
         money += products.Brownie
         document.getElementById("money").innerText = money;
         document.getElementById("numBrownies").innerText = numBrownies;
+        totalsales ++;
         
     }
 }
@@ -188,6 +194,7 @@ function SellMasala() {
         money += products.Masala_Lemonade
         document.getElementById("money").innerText = money;
         document.getElementById("numMasalaLemonades").innerText = numMasalas;
+        totalsales ++;
 
     }
 }
@@ -205,6 +212,7 @@ function ad1() {
         masala_min ++;
         masala_max ++;
         document.getElementById("money").innerText = money;
+        rating ++;
     }
 }
 
@@ -215,6 +223,7 @@ function ad2() {
         pink_lemrate -= 1000
         document.getElementById("money").innerText = money;
         console.log(lemrate)
+        rating ++;
     }
 }
 
@@ -230,6 +239,8 @@ function pinkLemUpgrade() {
         document.getElementById("masala").style.display = "block";
         money += 10
         document.getElementById("money").innerText = money;
+        recipes ++;
+        rating ++;
 
     }
 }
@@ -244,6 +255,8 @@ function brownieUpgrade() {
         document.getElementById("makeBrownie").style.display = "block";
         money += 10
         document.getElementById("money").innerText = money;
+        recipes ++;
+        rating ++;
 
 
 
@@ -261,6 +274,8 @@ function masalaUpgrade() {
         document.getElementById("makeMasala").style.display = "block";
         money += 10
         document.getElementById("money").innerText = money;
+        recipes ++
+        rating ++;
 
 
     }
@@ -329,6 +344,7 @@ function taxEvasion() {
         taxToggle = false;
         document.getElementById("money").innerText = money;
         document.getElementById("tax_evasion").style.display = "none";
+        rating ++;
     }
 }
 
@@ -343,6 +359,7 @@ function cookUpgrade() {
         document.getElementById("money").innerText = money
         document.getElementById("CookInfo").style.display = "block"
         document.getElementById("cook").style.display = "none";
+        rating ++;
 
     }
 }
@@ -373,3 +390,17 @@ function UpCook() {
 
     }
 }
+
+// Profile Button //
+
+ function profileMenuOn() {
+    document.getElementById("profileModal").style.display = "block";
+    document.getElementById("pfpMoney").innerText = money;
+    document.getElementById("totalsales").innerText = totalsales;
+    document.getElementById("recipesUnlocked").innerText = recipes;
+    document.getElementById("rating").innerText = rating;
+ }
+
+ function pfpRemove() {
+    document.getElementById("profileModal").style.display = "none";
+ }
