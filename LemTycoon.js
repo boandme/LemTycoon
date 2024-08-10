@@ -1,5 +1,5 @@
 // Variables //
-var money = 1500;
+var money = 50;
 var numlemons = 0;
 var numsugars = 0;
 var numstrawberries = 0;
