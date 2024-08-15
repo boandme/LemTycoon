@@ -1,5 +1,5 @@
 // Variables //
-var money = 50;
+var money = 500
 var numlemons = 0;
 var numsugars = 0;
 var numstrawberries = 0;
@@ -34,31 +34,142 @@ var cookRate = 3000;
 var totalsales = 0;
 var recipes = 1;
 var rating = 0;
+var pinkLem_bought = false;
+var brownie_bought = false;
+var masala_bought = false;
+var cook_bought = false;
+var taxEvasion_bought = false;
 
-function Buy(item) {
+
+var numlemons = localStorage.getItem("numlemons");
+var numsugars = localStorage.getItem("numsugars");
+var numstrawberries = localStorage.getItem("numstrawberries");
+var numchocolates = localStorage.getItem("numchocolates");
+var numherbs = localStorage.getItem("numherbs");
+var numlemonades = localStorage.getItem("numlemonades");
+var numPinkLemonades = localStorage.getItem("numPinkLemonades");
+var numBrownies = localStorage.getItem("numBrownies");
+var numMasalas = localStorage.getItem("numMasalas");
+//var lemrate = localStorage.getItem("lemrate")
+//var pink_lemrate = localStorage.getItem("pink_lemrate")
+//var brownie_rate = localStorage.getItem("brownie_rate")
+//var masala_rate = localStorage.getItem("masala_rate")
+
+var current_day = localStorage.getItem("current_day")
+var cookLevel = localStorage.getItem("cookLevel")
+var cookRate = localStorage.getItem("cookRate")
+var totalsales = localStorage.getItem("totalsales")
+var recipes = localStorage.getItem("recipes")
+var rating = localStorage.getItem("rating")
+
+var pinkLem_bought = localStorage.getItem("pinkLem_bought");
+var brownie_bought = localStorage.getItem("brownie_bought");
+var masala_bought = localStorage.getItem("masala_bought");
+var cook_bought = localStorage.getItem("cook_bought");
+var taxEvasion_bought = localStorage.getItem("taxEvasion_bought");
+
+
+var money = localStorage.getItem("money")
+console.log(money)
+products = {
+    "Pink_Lemonade": 12,
+    "Lemonade": 8,
+    "Brownie": 10,
+    "Masala_Lemonade": 27
+}
+
+items = {
+    "lemon": 3,
+    "sugar": 1,
+    "strawberry":4,
+    "chocolate": 8,
+    "herb": 13,
+}
+
+window.addEventListener("load", (event) => {
+    //localStorage.clear()
+    if (pinkLem_bought == 'true') {
+        money = parseInt(money)
+        money += 190
+        pinkLemUpgrade()
+        
+    }
+    if (brownie_bought == 'true') {
+        money = parseInt(money)
+        money += 340
+        brownieUpgrade()
+        
+    }
+    if (masala_bought == 'true') {
+        money = parseInt(money)
+        money += 490
+        masalaUpgrade()
+        
+    }
+    if (cook_bought == 'true') {
+        money = parseInt(money)
+        money += 740
+        cookUpgrade()
+    }
+    if (taxEvasion_bought == 'true') {
+        money = parseInt(money)
+        money += 240
+        taxEvasion()
+        
+    }
+   
+    
+    document.getElementById("money").innerText = money;
+    document.getElementById("numstrawberries").innerText = numstrawberries;
+    document.getElementById("numlemons").innerText = numlemons;
+    document.getElementById("numchocolates").innerText = numchocolates;
+    document.getElementById("numherbs").innerText = numherbs;
+    document.getElementById("numsugars").innerText = numsugars;
+    document.getElementById("numlemonades").innerText = numlemonades;
+    document.getElementById("numPinkLemonades").innerText = numPinkLemonades;
+    document.getElementById("numBrownies").innerText = numBrownies;
+    document.getElementById("numMasalaLemonades").innerText = numMasalas;
+    document.getElementById("daynum").innerText = current_day
+   
+
+    
+
+ });
+// LocalStorage //
+
+
+function Buy(item) {;
     if( money >= items[item]) {
         money -= items[item]
         if (item === "strawberry") {
             numstrawberries ++;
             document.getElementById("numstrawberries").innerText = numstrawberries
+            localStorage.setItem("numstrawberries", JSON.stringify(numstrawberries))
         }
         else if (item === "lemon") {
             numlemons ++;
             document.getElementById("numlemons").innerText = numlemons
+            localStorage.setItem("numlemons", JSON.stringify(numlemons))
         }
         else if (item === "sugar") {
             numsugars ++;
             document.getElementById("numsugars").innerText = numsugars
+            localStorage.setItem("numsugars", JSON.stringify(numsugars))
         }
          else if (item === "chocolate") {
              numchocolates ++;
              document.getElementById("numchocolates").innerText = numchocolates
+             localStorage.setItem("numchocolates", JSON.stringify(numchocolates))
          }
          else if (item === "herb") {
             numherbs ++;
             document.getElementById("numherbs").innerText = numherbs
+            localStorage.setItem("numherbs", JSON.stringify(numherbs))
          }
         document.getElementById("money").innerText = money
+        localStorage.setItem("money", JSON.stringify(money))
+        
+        
     }
 }
 
@@ -71,6 +182,10 @@ function makelemonade() {
         document.getElementById("numsugars").innerText = numsugars;
         document.getElementById("numlemons").innerText = numlemons;
         document.getElementById("numlemonades").innerText = numlemonades;
+        localStorage.setItem("numlemonades", JSON.stringify(numlemonades))
+        localStorage.setItem("numsugars", JSON.stringify(numsugars))
+        localStorage.setItem("numlemons", JSON.stringify(numlemons))
+    
 
 
     }
@@ -84,6 +199,10 @@ function makePinkLemonade(){
         document.getElementById("numstrawberries").innerText = numstrawberries;
         document.getElementById("numlemons").innerText = numlemons;
         document.getElementById("numPinkLemonades").innerText = numPinkLemonades;
+        localStorage.setItem("numPinkLemonades", JSON.stringify(numPinkLemonades))
+        localStorage.setItem("numstrawberries", JSON.stringify(numstrawberries))
+        localStorage.setItem("numlemons", JSON.stringify(numlemons))
+        
 
 
     }
@@ -97,6 +216,10 @@ function makeBrownie() {
         document.getElementById("numchocolates").innerText = numchocolates;
         document.getElementById("numsugars").innerText = numsugars;
         document.getElementById("numBrownies").innerText = numBrownies;
+        localStorage.setItem("numBrownies", JSON.stringify(numBrownies))
+        localStorage.setItem("numsugars", JSON.stringify(numsugars))
+        localStorage.setItem("numchocolates", JSON.stringify(numchocolates))
+        localStorage.setItem("money", JSON.stringify(money))
 
     }
 }
@@ -109,6 +232,10 @@ function makeMasala() {
         document.getElementById("numlemons").innerText = numlemons;
         document.getElementById("numherbs").innerText = numherbs;
         document.getElementById("numMasalaLemonades").innerText = numMasalas;
+        localStorage.setItem("numMasalas", JSON.stringify(numMasalas))
+        localStorage.setItem("numherbs", JSON.stringify(numherbs))
+        localStorage.setItem("numlemons", JSON.stringify(numlemons))
+        localStorage.setItem("money", JSON.stringify(money))
     }
 }
 
@@ -135,32 +262,23 @@ function getRandomNumber(min, max) {
 
   // Sell lemonade auto function //
 
-products = {
-    "Pink_Lemonade": 12,
-    "Lemonade": 8,
-    "Brownie": 10,
-    "Masala_Lemonade": 27
-}
 
-items = {
-    "lemon": 3,
-    "sugar": 1,
-    "strawberry":4,
-    "chocolate": 8,
-    "herb": 13,
-}
 console.log(products)
 setInterval(SellLemonade, lemrate)
+console.log(lemrate)
 setInterval(SellPinkLemonade, pink_lemrate)
 setInterval(SellBrownie, brownie_rate)
 setInterval(SellMasala, masala_rate)
 function SellLemonade(){
     if (numlemonades >= 1){
         numlemonades -= 1
+        money = parseInt(money)
         money += products.Lemonade
-        console.log(products.Lemonade)
+        //console.log(products.Lemonade)
         document.getElementById("money").innerText = money;
         document.getElementById("numlemonades").innerText = numlemonades;
+        localStorage.setItem("numlemonades", JSON.stringify(numlemonades))
+        localStorage.setItem("money", JSON.stringify(money))
         totalsales ++;
 
     }
@@ -172,6 +290,8 @@ function SellPinkLemonade() {
         money += products.Pink_Lemonade
         document.getElementById("money").innerText = money;
         document.getElementById("numPinkLemonades").innerText = numPinkLemonades;
+        localStorage.setItem("numPinkLemonades", JSON.stringify(numPinkLemonades))
+        localStorage.setItem("money", JSON.stringify(money))
         totalsales ++;
 
     }
@@ -183,6 +303,8 @@ function SellBrownie() {
         money += products.Brownie
         document.getElementById("money").innerText = money;
         document.getElementById("numBrownies").innerText = numBrownies;
+        localStorage.setItem("numBrownies", JSON.stringify(numBrownies))
+        localStorage.setItem("money", JSON.stringify(money))
         totalsales ++;
         
     }
@@ -194,6 +316,8 @@ function SellMasala() {
         money += products.Masala_Lemonade
         document.getElementById("money").innerText = money;
         document.getElementById("numMasalaLemonades").innerText = numMasalas;
+        localStorage.setItem("numMasalaLemonades", JSON.stringify(numMasalas))
+        localStorage.setItem("money", JSON.stringify(money))
         totalsales ++;
 
     }
@@ -213,6 +337,7 @@ function ad1() {
         masala_max ++;
         document.getElementById("money").innerText = money;
         rating ++;
+        
     }
 }
 
@@ -239,6 +364,9 @@ function pinkLemUpgrade() {
         document.getElementById("masala").style.display = "block";
         money += 10
         document.getElementById("money").innerText = money;
+        localStorage.setItem("money", JSON.stringify(money))
+        pinkLem_bought = true;
+        localStorage.setItem("pinkLem_bought", JSON.stringify(pinkLem_bought))
         recipes ++;
         rating ++;
 
@@ -257,6 +385,9 @@ function brownieUpgrade() {
         document.getElementById("money").innerText = money;
         recipes ++;
         rating ++;
+        localStorage.setItem("money", JSON.stringify(money))
+        brownie_bought = true;
+        localStorage.setItem("brownie_bought", JSON.stringify(brownie_bought))
 
 
 
@@ -276,6 +407,9 @@ function masalaUpgrade() {
         document.getElementById("money").innerText = money;
         recipes ++
         rating ++;
+        localStorage.setItem("money", JSON.stringify(money))
+        masala_bought = true;
+        localStorage.setItem("masala_bought", JSON.stringify(masala_bought))
 
 
     }
@@ -297,6 +431,7 @@ function changeTime() {
 
 function changeDay(){
     current_day ++;
+    localStorage.setItem("current_day", current_day)
     document.getElementById("daynum").innerText = current_day
 }
 
@@ -345,6 +480,10 @@ function taxEvasion() {
         document.getElementById("money").innerText = money;
         document.getElementById("tax_evasion").style.display = "none";
         rating ++;
+        money += 10
+        localStorage.setItem("money", JSON.stringify(money))
+        taxEvasion_bought = true;
+        localStorage.setItem("taxEvasion_bought", JSON.stringify(taxEvasion_bought))
     }
 }
 
@@ -360,6 +499,10 @@ function cookUpgrade() {
         document.getElementById("CookInfo").style.display = "block"
         document.getElementById("cook").style.display = "none";
         rating ++;
+        money += 10
+        localStorage.setItem("money", JSON.stringify(money))
+        cook_bought = true;
+        localStorage.setItem("cook_bought", JSON.stringify(cook_bought))
 
     }
 }
@@ -387,6 +530,8 @@ function UpCook() {
         document.getElementById("money").innerText = money
         document.getElementById("cookLevel").innerText = cookLevel
         document.getElementById("cookrate").innerText = cookRate/1000
+        localStorage.setItem("cookLevel", JSON.stringify(cookLevel))
+        localStorage.setItem("cookRate", JSON.stringify(cookRate/1000))
 
     }
 }
@@ -399,6 +544,8 @@ function UpCook() {
     document.getElementById("totalsales").innerText = totalsales;
     document.getElementById("recipesUnlocked").innerText = recipes;
     document.getElementById("rating").innerText = rating;
+    localStorage.setItem("rating", JSON.stringify(rating))
+    localStorage.setItem("recipes", JSON.stringify(recipes))
  }
 
  function pfpRemove() {
