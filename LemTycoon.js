@@ -57,7 +57,6 @@ var numMasalas = localStorage.getItem("numMasalas");
 
 var current_day = localStorage.getItem("current_day")
 var cookLevel = localStorage.getItem("cookLevel")
-var cookRate = localStorage.getItem("cookRate")
 var totalsales = localStorage.getItem("totalsales")
 var recipes = localStorage.getItem("recipes")
 var rating = localStorage.getItem("rating")
@@ -87,6 +86,7 @@ items = {
 }
 
 window.addEventListener("load", (event) => {
+    money = 500
     //localStorage.clear()
     if (pinkLem_bought == 'true') {
         money = parseInt(money)
@@ -502,7 +502,9 @@ function cookUpgrade() {
         money += 10
         localStorage.setItem("money", JSON.stringify(money))
         cook_bought = true;
+        cookRate = parseInt(cookRate)
         localStorage.setItem("cook_bought", JSON.stringify(cook_bought))
+        localStorage.setItem("cookLevel", JSON.stringify(cookLevel))
 
     }
 }
@@ -526,12 +528,13 @@ function UpCook() {
     if(money >= 200 && cookRate >1000) {
         money -= 200
         cookLevel += 1
+        cookRate = parseInt(cookRate)
         cookRate -= 500
         document.getElementById("money").innerText = money
         document.getElementById("cookLevel").innerText = cookLevel
         document.getElementById("cookrate").innerText = cookRate/1000
         localStorage.setItem("cookLevel", JSON.stringify(cookLevel))
-        localStorage.setItem("cookRate", JSON.stringify(cookRate/1000))
+
 
     }
 }
@@ -551,3 +554,15 @@ function UpCook() {
  function pfpRemove() {
     document.getElementById("profileModal").style.display = "none";
  }
+
+
+
+ function  ResetGame() {
+    localStorage.clear();
+    if(localStorage.length === 0) {
+        money.innerHTML = "";
+        location.reload()
+        money = 500
+    }
+      
+ };
