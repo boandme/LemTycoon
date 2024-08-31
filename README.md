@@ -3,12 +3,21 @@ Instructions: Buy ingredients from the shop and use them to make youre first lem
 
 Update Log: 
 v0.1 - Ingredients Update 🍎
+
 v0.2 - Lemonade making + set price update 🍋
+
 v0.3 - Automatic money making update 💸
+
 v0.5 - Pink Lemonade + Upgrades Update! 🍋🍓🛠️
+
 v.06 - Times Update (days and nights) 🌙🌞
+
 v0.7 - Brownie Update 🍫🥮
+
 v0.8 - Rent & Tax Update 💸💰
+
 v0.9 - Chef Update 
+
 v1.0 - Masala Lemonade update - 🌿🍋
+
 V1.1[2024] - MilkShake Update 
