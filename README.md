@@ -4,7 +4,7 @@ Instructions: Buy ingredients from the shop and use them to make youre first lem
 Update Log: 
 v0.1 - Ingredients Update 🍎
 
-v0.2 - Lemonade making + set price update 🍋
+v0.2 - Lemonade making + set price[REDACTED] update 🍋
 
 v0.3 - Automatic money making update 💸
 
@@ -18,6 +18,10 @@ v0.8 - Rent & Tax Update 💸💰
 
 v0.9 - Chef Update 
 
-v1.0 - Masala Lemonade update - 🌿🍋
+v1.0 - Masala Lemonade update 🌿🍋
 
-V1.1[2024] - MilkShake Update 
+v1.1 - Cookie Update  🍪
+
+V1.2[2024] - Deflation Update - Cheaper grocery prices 🤑
+
+V1.3[2024] - Upgrades expansion(Office space, stock manager(?)
