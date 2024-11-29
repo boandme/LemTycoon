@@ -1,29 +1,42 @@
 // Variables //
-var money = 500
+
+//Individual items 
+var money = 50;
 var numlemons = 0;
 var numsugars = 0;
+var numbreads = 0;
 var numstrawberries = 0;
 var numchocolates = 0;
 var numherbs = 0
+
+// Recipes
 var numlemonades = 0;
+var numCookies = 0;
 var numPinkLemonades = 0;
 var numBrownies = 0;
 var numMasalas = 0;
+
+/// Daily prices & rates
 var lemprice = 8;
 var pinkLemPrice = 12;
 var lemonade_cost = 7;
 var lemrate = 4000;
+var cookie_rate = 3000
 var pink_lemrate = 4000;
 var brownie_rate = 4000;
 var masala_rate = 4000;
 var Lemonade_min = 9;
 var Lemonade_max = 14;
+var cookie_min = 19;
+var cookie_max = 29;
 var pinkLem_min = 13;
 var pinkLem_max = 18;
 var brownie_min = 12;
 var brownie_max = 20;
 var masala_min = 26;
 var masala_max = 35;
+
+/// Time & Taxes // 
 var current_time = "day";
 var current_day = 1;
 var currentRent = 100;
@@ -34,19 +47,24 @@ var cookRate = 3000;
 var totalsales = 0;
 var recipes = 1;
 var rating = 0;
+
+// Bools //
 var pinkLem_bought = false;
 var brownie_bought = false;
 var masala_bought = false;
 var cook_bought = false;
 var taxEvasion_bought = false;
 
-
+// LOCAL STORAGE //
+var money = localStorage.getItem("money")
 var numlemons = localStorage.getItem("numlemons");
 var numsugars = localStorage.getItem("numsugars");
+var numbreads = localStorage.getItem("numbreads");
 var numstrawberries = localStorage.getItem("numstrawberries");
 var numchocolates = localStorage.getItem("numchocolates");
 var numherbs = localStorage.getItem("numherbs");
 var numlemonades = localStorage.getItem("numlemonades");
+var numCookies = localStorage.getItem("numCookies");
 var numPinkLemonades = localStorage.getItem("numPinkLemonades");
 var numBrownies = localStorage.getItem("numBrownies");
 var numMasalas = localStorage.getItem("numMasalas");
@@ -68,25 +86,28 @@ var cook_bought = localStorage.getItem("cook_bought");
 var taxEvasion_bought = localStorage.getItem("taxEvasion_bought");
 
 
-var money = localStorage.getItem("money")
+
 console.log(money)
-products = {
+var products = {
     "Pink_Lemonade": 12,
     "Lemonade": 8,
+    "Cookie": 21,
     "Brownie": 10,
     "Masala_Lemonade": 27
 }
 
-items = {
+var items = {
     "lemon": 3,
     "sugar": 1,
+    "bread": 6,
     "strawberry":4,
     "chocolate": 8,
     "herb": 13,
 }
 
 window.addEventListener("load", (event) => {
-    money = 500
+    
+    money = 50;
     //localStorage.clear()
     if (pinkLem_bought == 'true') {
         money = parseInt(money)
@@ -141,6 +162,7 @@ window.addEventListener("load", (event) => {
 function Buy(item) {;
     if( money >= items[item]) {
         money -= items[item]
+        localStorage.setItem("money", JSON.stringify(money));
         if (item === "strawberry") {
             numstrawberries ++;
             document.getElementById("numstrawberries").innerText = numstrawberries
@@ -155,6 +177,12 @@ function Buy(item) {;
             numsugars ++;
             document.getElementById("numsugars").innerText = numsugars
             localStorage.setItem("numsugars", JSON.stringify(numsugars))
+        }
+        else if (item === "bread"){
+            numbreads ++;
+            document.getElementById("numbreads").innerText = numbreads;
+            localStorage.setItem("numbreads", JSON.stringify(numbreads));
+
         }
          else if (item === "chocolate") {
              numchocolates ++;
@@ -185,6 +213,22 @@ function makelemonade() {
         localStorage.setItem("numlemonades", JSON.stringify(numlemonades))
         localStorage.setItem("numsugars", JSON.stringify(numsugars))
         localStorage.setItem("numlemons", JSON.stringify(numlemons))
+    
+
+
+    }
+}
+function makeCookie() {
+    if (numbreads >= 2 && numsugars >= 2) {
+        numbreads -= 2;
+        numsugars -=2;
+        numCookies += 1;
+        document.getElementById("numbreads").innerText = numbreads;
+        document.getElementById("numsugars").innerText = numsugars;
+        document.getElementById("numCookies").innerText = numCookies;
+        localStorage.setItem("numCookies", JSON.stringify(numCookies))
+        localStorage.setItem("numsugars", JSON.stringify(numsugars))
+        
     
 
 
@@ -245,11 +289,13 @@ function makeMasala() {
 setInterval(refreshprices, 40000)
 function refreshprices(){
     products.Lemonade = getRandomNumber(Lemonade_min,Lemonade_max)
+    products.Cookie = getRandomNumber(cookie_min, cookie_max)
     products.Pink_Lemonade = getRandomNumber(pinkLem_min,pinkLem_max)
     products.Brownie = getRandomNumber(brownie_min, brownie_max)
     products.Masala_Lemonade = getRandomNumber(masala_min, masala_max)
     document.getElementById("lemprice").innerText = products.Lemonade
     document.getElementById("pinkLemPrice").innerText = products.Pink_Lemonade
+    document.getElementById("cookiePrice").innerText = products.Cookie
     document.getElementById("brownieprice").innerText = products.Brownie
     document.getElementById("masala_price").innerText = products.Masala_Lemonade
 
@@ -260,15 +306,14 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
   }
 
-  // Sell lemonade auto function //
+ 
 
-
-console.log(products)
+//Auto Sell 
 setInterval(SellLemonade, lemrate)
-console.log(lemrate)
 setInterval(SellPinkLemonade, pink_lemrate)
 setInterval(SellBrownie, brownie_rate)
 setInterval(SellMasala, masala_rate)
+setInterval(SellCookie, cookie_rate)
 function SellLemonade(){
     if (numlemonades >= 1){
         numlemonades -= 1
@@ -278,6 +323,19 @@ function SellLemonade(){
         document.getElementById("money").innerText = money;
         document.getElementById("numlemonades").innerText = numlemonades;
         localStorage.setItem("numlemonades", JSON.stringify(numlemonades))
+        localStorage.setItem("money", JSON.stringify(money))
+        totalsales ++;
+
+    }
+}
+function SellCookie(){
+    if (numCookies >= 1){
+        numCookies -= 1
+        money = parseInt(money)
+        money += products.Cookie
+        document.getElementById("money").innerText = money;
+        document.getElementById("numCookies").innerText = numCookies;
+        localStorage.setItem("numCookies", JSON.stringify(numCookies))
         localStorage.setItem("money", JSON.stringify(money))
         totalsales ++;
 
@@ -514,6 +572,7 @@ function cookfood() {
     makePinkLemonade()
     makeBrownie()
     makeMasala()
+    makeCookie()
 }
 
 function workerMenuOn() {
@@ -560,7 +619,6 @@ function UpCook() {
  function  ResetGame() {
     localStorage.clear();
     if(localStorage.length === 0) {
-        money.innerHTML = "";
         location.reload()
         money = 500
     }

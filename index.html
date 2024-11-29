@@ -8,7 +8,7 @@
     <script src = "LemTycoon.js" ></script>
     <div id = "toptitle">
         <span id = "coin">$</span>
-        <span id="money">500</span>
+        <span id="money">50</span>
         <span class ="title">LemTycoon v1.0 <span>
         <span class = "time"id ="daynum">1</span>
         <span class ="time">Day&nbsp;</span>
@@ -40,7 +40,8 @@
     <div id = "shop" class = "column">
     <h1>Shop</h1>
     <button onclick = "Buy('lemon')">🍋 Lemon | $3</button> <br>
-    <button onclick = "Buy('sugar')">⚪ Sugar | $1</button>
+    <button onclick = "Buy('sugar')">⚪ Sugar | $1</button> <br>
+    <button onclick = "Buy('bread')">🍞 Bread | $6 </button> 
     <button id = "buyStraw" onclick = "Buy('strawberry')" >🍓 Strawberry | $4</button>
     <button id = "buyChoc" onclick = "Buy('chocolate')">🍫 Chocolate| $8</button> 
     <button id = "buyHerb" onclick = "Buy('herb')">🌿 Herb | $13</button>
@@ -51,6 +52,9 @@
             <div id = "priceBody" >
             <span> Lemonade Price: $</span>
             <span id = "lemprice">8</span>
+            <br>
+            <span> Cookie Price: $</span>
+            <span id = "cookiePrice">21</span>
             <br>
             <span> Pink Lemonade Price: $</span>
             <span id = "pinkLemPrice">12</span>
@@ -78,6 +82,10 @@
             <span >⚪ Sugar: </span>
             <span id = "numsugars"></span>
         </div> 
+        <div id = "breads">
+            <span >🍞 Bread: </span>
+            <span id = "numbreads"></span>
+        </div> 
         <div id = "InvStrawberries">
             <span id = "invStrawGone">🍓 Strawberry: </span>
             <span id = "numstrawberries"></span>
@@ -94,6 +102,10 @@
             <span >🍹Lemonade: </span>
             <span id = "numlemonades"></span>
         </div> 
+        <div id = "cookies">
+            <span >🍪 Cookies: </span>
+            <span id = "numCookies"></span>
+        </div> 
         <div id = "pink_lemonades">
             <span >🍓🍹 Pink Lemonade: </span>
             <span id = "numPinkLemonades">0</span>
@@ -107,7 +119,8 @@
             <span id = "numMasalaLemonades">0</span>
         </div>
     </div>
-        <button id = "makeLem" onclick = makelemonade()>Make Lemonade(2 lemon, 1 sugar)</button>
+        <button id = "makeLem" onclick = makelemonade()>Make Lemonade(2 lemon, 1 sugar)</button> <br> 
+        <button id = "makeCookie" onclick = makeCookie()>Make Cookie(2 bread, 2 sugar)</button>
         <button id = "makePinkLem" onclick = makePinkLemonade()> Make Pink Lemonade(2 lemon, 1 strawberry)</button>
         <button id = "makeBrownie" onclick = makeBrownie()>Make Brownie(1 chocolate, 1 sugar)</button>
         <button id = "makeMasala" onclick = "makeMasala()"> Make Masala Lemonade(1 herb, 2 lemon)</button>
