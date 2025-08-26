@@ -22,6 +22,8 @@ v1.0 - Masala Lemonade update 🌿🍋
 
 v1.1 - Cookie Update  🍪
 
-V1.2[2024] - Deflation Update - Cheaper grocery prices 🤑
+V1.2[2025] - Deflation Update - Cheaper grocery prices 🤑
 
-V1.3[2024] - Upgrades expansion(Office space, stock manager(?)
+V1.3[2025] - Upgrades expansion(Office space, stock manager(?)
+
+V1.4[2025] - New Foods Update(Cake, bakery items, juice?)
